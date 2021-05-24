@@ -2,10 +2,10 @@
 while True:
   rules = input("Would you like to read the instructions? ")
 
-  if rules == "no" or rules == "n" :
+  if rules == "no" or rules == "n" or rules == "N" or rules == "nO" or rules == "No" or rules == "NO" :
     break
       
-  elif rules == "yes" or rules == "y" :
+  elif rules == "yes" or rules == "y" or rules == "Y" or rules == "yeS" or rules == "yEs" or rules == "Yes" or rules == "YEs" or rules == "YES" or rules == "yES" :
     print()
     print("******* Quiz Instructions ********")
     print()
