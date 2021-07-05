@@ -3,48 +3,52 @@ print("*********Welcome to the General Knowledge Quiz*********")
 print("********This Quiz was made by me, William Stacey********")
 
 #instructions
-while True:
-  rules = input("Would you like to read the instructions? ")
+def instructions():
+    while True:
+      rules = input("Would you like to read the instructions? ")
 
-  if rules == "no" or rules == "n" or rules == "N" or rules == "nO" or rules == "No" or rules == "NO" :
-    break
-      
-  elif rules == "yes" or rules == "y" or rules == "Y" or rules == "yeS" or rules == "yEs" or rules == "Yes" or rules == "YEs" or rules == "YES" or rules == "yES" :
-    print()
-    print("******* Quiz Instructions ********")
-    print()
-    print("The Instructions are simple for the quiz.")
-    print()
-    print("Answer the questions that will be provided shortly.")
-    print("Once you have decided your answer, don't answer in the name.")
-    print("Instead answer in the letter provided that corresponds with the answer you want to make.")
-    print("If you do not do that, the answer will automatically be marked as wrong, regardless of if you got it right or not.")
-    print("After you have completed the quiz. You will soon get your results")
-    print()
-    print("That is all. Have fun!")
-    print()
-    break
-    
-  else:
-    print("Please enter a valid response, such as 'y', 'yes', 'n' or 'no'.")
+      if rules == "no" or rules == "n" or rules == "N" or rules == "nO" or rules == "No" or rules == "NO" :
+        break
+          
+      elif rules == "yes" or rules == "y" or rules == "Y" or rules == "yeS" or rules == "yEs" or rules == "Yes" or rules == "YEs" or rules == "YES" or rules == "yES" :
+        print()
+        print("******* Quiz Instructions ********")
+        print()
+        print("The Instructions are simple for the quiz.")
+        print()
+        print("Answer the questions that will be provided shortly.")
+        print("Once you have decided your answer, don't answer in the name.")
+        print("Instead answer in the letter provided that corresponds with the answer you want to make.")
+        print("If you do not do that, the answer will automatically be marked as wrong, regardless of if you got it right or not.")
+        print("After you have completed the quiz. You will soon get your results")
+        print()
+        print("That is all. Have fun!")
+        print()
+        break
+        
+      else:
+        print("Please enter a valid response, such as 'y', 'yes', 'n' or 'no'.")
 
 #ask name
-name = ''
+def name():
+    global name
+    name = ''
 
-while True:
-    name = input("Enter your name: ")
-    if name.isalpha():
-        break
-    print("Please enter characters A-Z only.")
+    while True:
+        name = input("Enter your name: ")
+        if name.isalpha():
+            break
+        print("Please enter characters A-Z only.")
 
 #ask age
-age = ''
+def age():
+    age = ''
 
-while True:
-    age = input("Enter your age: ")
-    if age.isnumeric():
-        break
-    print("Please enter numbers only.")
+    while True:
+        age = input("Enter your age: ")
+        if age.isnumeric():
+            break
+        print("Please enter numbers only.")
 
 
 #quiz questions
@@ -78,4 +82,7 @@ def run_quiz(questions):
              score += 1
    print("Hey",name)
    print("You got", score, "out of", len(questions))
+instructions()
+name()
+age()
 run_quiz(questions)
