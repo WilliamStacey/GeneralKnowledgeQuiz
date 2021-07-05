@@ -8,5 +8,5 @@ def age():
               break
           print("Please enter numbers only.")
 
-print("You are",age)
 age()
+print("You are",age)
