@@ -8,11 +8,11 @@ class Question:
 
 #question prompt variable
 question_prompts = [
-  "What is the biggest video game series ever?\n(a) Pokemon\n(b) Mario\n(c) Sonic\nEnter: ",
-  "Which movie company has made the most movies?\n(a) Disney\n(b) Universal\n(c) Warner Bros.\nEnter: ",
-  "What is the biggest island in the world?\n(a) Greenland\n(b) Madagascar\n(c) Australia\nEnter: ",
-  "What is the smallest country?\n(a) Canberra\n(b) The Vatican\n(c) Republic of San Marino\nEnter: ",
-  "Who is the richest man in the world?\n(a) Elon Musk\n(b) Bill Gates\n(c) Jeff Bezos\nEnter: ",
+  "What is the biggest video game series ever?\n\n(a) Pokemon\n(b) Mario\n(c) Sonic\n\nEnter: ",
+  "Which movie company has made the most movies?\n\n(a) Disney\n(b) Universal\n(c) Warner Bros.\n\nEnter: ",
+  "What is the biggest island in the world?\n\n(a) Greenland\n(b) Madagascar\n(c) Australia\n\nEnter: ",
+  "What is the smallest country\n\nn(a) Canberra\n(b) The Vatican\n(c) Republic of San Marino\n\nEnter: ",
+  "Who is the richest man in the world?\n\n(a) Elon Musk\n(b) Bill Gates\n(c) Jeff Bezos\n\nEnter: ",
  ]
 
 questions = [
@@ -24,6 +24,9 @@ questions = [
 ]
 
 #user defined functions
+
+#time delay
+import time
 
 #instructions
 def instructions():
@@ -60,6 +63,7 @@ def name():
     while True:
         name = input("Enter your name: ")
         if name.isalpha():
+            print()
             break
         print("Please enter characters A-Z only.")
 
@@ -68,9 +72,16 @@ def age():
     age = ''
 
     while True:
-        age = input("Enter your age: ")
-        if age.isnumeric():
-            break
+      try:
+        age = int(input("Enter your age: "))
+        if age < 10:
+            print("You are too young to take this quiz.")
+            raise SystemExit
+        elif age > 18:
+            print("You are too old to take this quiz.")
+            raise SystemExit
+        break
+      except ValueError:
         print("Please enter numbers only.")
 
 #quiz questions
@@ -88,6 +99,8 @@ def run_quiz(questions):
              score += 1
    print("Hey",name)
    print("You got", score, "out of", len(questions))
+   print()
+   print("Thank you for playing my quiz.")
 
 #print statements
 
@@ -96,12 +109,21 @@ def credits():
   print("*********Welcome to the General Knowledge Quiz*********")
   print("********This Quiz was made by me, William Stacey********")
 
+#preparing to output questions
+def preperations():
+  print()
+  print("Preparing to output quiz questions.")
+  print()
+
+
 #calling functions
 
 credits()#credits function
 instructions()#instuctions function
 name()#name function
 age()#age function
+preperations()#preperations function
+time.sleep(2)
 run_quiz(questions)#quiz and score function
 
 #Linear Main Routine
@@ -159,6 +181,16 @@ def age():
             break
         print("Please enter numbers only.")
 
+#preparing to output questions
+def preperations():
+  print()
+  print("Preparing to output quiz questions.")
+  print()
+
+#time delay
+import time
+
+time.sleep(2)
 
 #quiz questions
 class Question:
@@ -191,3 +223,5 @@ def run_quiz(questions):
              score += 1
    print("Hey",name)
    print("You got", score, "out of", len(questions))
+   print()
+   print("Thank you for playing my quiz.")
